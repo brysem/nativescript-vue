@@ -42,6 +42,7 @@ export function parseComponent(
     start: number,
     end: number
   ) {
+    console.log('nativescript-vue-template-compiler: tag', tag);
     if (depth === 0) {
       currentBlock = {
         type: tag,
@@ -55,6 +56,7 @@ export function parseComponent(
       if (isSpecialTag(tag)) {
         checkAttrs(currentBlock, attrs)
         if (tag === 'style') {
+            console.log('- nativescript-vue-template-compiler: style', currentBlock);
           sfc.styles.push(currentBlock)
         } else if (tag === 'script') {
           sfc.scripts.push(currentBlock)
